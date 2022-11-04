@@ -1,4 +1,4 @@
-# Changelog for `juspay-time`
+# Changelog for `fast-time`
 
 All notable changes to this project will be documented in this file.
 

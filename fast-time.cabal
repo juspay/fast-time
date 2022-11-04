@@ -4,11 +4,11 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           juspay-time
+name:           fast-time
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/juspay-time#readme>
-homepage:       https://github.com/githubuser/juspay-time#readme
-bug-reports:    https://github.com/githubuser/juspay-time/issues
+description:    Please see the README on GitHub at <https://github.com/githubuser/fast-time#readme>
+homepage:       https://github.com/githubuser/fast-time#readme
+bug-reports:    https://github.com/githubuser/fast-time/issues
 author:         Author name here
 maintainer:     example@example.com
 copyright:      2022 Author name here
@@ -21,7 +21,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/juspay-time
+  location: https://github.com/githubuser/fast-time
 
 library
   exposed-modules:
@@ -29,7 +29,7 @@ library
       Time
       Time.Parser
   other-modules:
-      Paths_juspay_time
+      Paths_fast_time
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
@@ -40,49 +40,49 @@ library
     , time
   default-language: Haskell2010
 
-executable juspay-time-bench
+executable fast-time-bench
   main-is: Main.hs
   other-modules:
-      Paths_juspay_time
+      Paths_fast_time
   hs-source-dirs:
       bench
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , criterion
+    , fast-time
     , flatparse
-    , juspay-time
     , text
     , time
   default-language: Haskell2010
 
-executable juspay-time-exe
+executable fast-time-exe
   main-is: Main.hs
   other-modules:
-      Paths_juspay_time
+      Paths_fast_time
   hs-source-dirs:
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , fast-time
     , flatparse
-    , juspay-time
     , text
     , time
   default-language: Haskell2010
 
-test-suite juspay-time-test
+test-suite fast-time-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_juspay_time
+      Paths_fast_time
   hs-source-dirs:
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , fast-time
     , flatparse
-    , juspay-time
     , text
     , time
   default-language: Haskell2010

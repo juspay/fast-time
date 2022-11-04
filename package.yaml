@@ -1,6 +1,6 @@
-name: juspay-time
+name: fast-time
 version: 0.1.0.0
-github: "githubuser/juspay-time"
+github: "githubuser/fast-time"
 license: BSD3
 author: "Author name here"
 maintainer: "example@example.com"
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description: Please see the README on GitHub at <https://github.com/githubuser/juspay-time#readme>
+description: Please see the README on GitHub at <https://github.com/githubuser/fast-time#readme>
 
 dependencies:
   - base >= 4.7 && < 5
@@ -40,7 +40,7 @@ library:
   source-dirs: src
 
 executables:
-  juspay-time-exe:
+  fast-time-exe:
     main: Main.hs
     source-dirs: app
     ghc-options:
@@ -48,8 +48,8 @@ executables:
       - -rtsopts
       - -with-rtsopts=-N
     dependencies:
-      - juspay-time
-  juspay-time-bench:
+      - fast-time
+  fast-time-bench:
     main: Main.hs
     source-dirs: bench
     ghc-options:
@@ -57,11 +57,11 @@ executables:
       - -rtsopts
       - -with-rtsopts=-N
     dependencies:
-      - juspay-time
+      - fast-time
       - criterion
 
 tests:
-  juspay-time-test:
+  fast-time-test:
     main: Spec.hs
     source-dirs: test
     ghc-options:
@@ -69,4 +69,4 @@ tests:
       - -rtsopts
       - -with-rtsopts=-N
     dependencies:
-      - juspay-time
+      - fast-time
