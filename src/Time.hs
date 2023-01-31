@@ -3,10 +3,11 @@
 module Time
   ( module X
   , parseTime
+  , parseLTime
   ) where
 
 import Data.Text (Text)
-import Data.Time (UTCTime)
+import Data.Time (UTCTime, LocalTime)
 import FlatParse.Basic (Result(..), runParserS)
 import Time.Parser as X
 
@@ -17,10 +18,21 @@ parseTime format stringifiedDate = go $ runParserS parser stringifiedDate
       | format == "%Y-%m-%dT%k:%M:%SZ" ||
           format == "%Y-%m-%dT%k:%M:%S%QZ" ||
           format == "%Y-%m-%d %k:%M:%S%Q" || format == "%Y-%m-%d %k:%M:%S" =
-        basicParser
+        parserUTCTime
       | format == "%Y-%m-%d" ||
-          format == "%Y %m %d" || format == "%Y-%m %d" || format == "%Y %m-%d" =
+          format == "%Y %m %d" || format == "%Y-%m %d" || format == "%Y %m-%d" || format == "%Y/%-m/%-d" =
         dayParser
-      | otherwise = basicParser
+      | format == "%d%m%Y" = dayParser'
+      | otherwise = parserUTCTime
+    go (OK r _) = Just r
+    go _ = Nothing
+
+parseLTime :: Text -> String -> Maybe LocalTime 
+parseLTime format stringifiedDate = go $ runParserS parser stringifiedDate
+  where
+    parser 
+      |  format == "%Y-%m-%dT%k:%M:%S%Q%Ez" =
+        parserLocalTime
+      | otherwise = parserLocalTime
     go (OK r _) = Just r
     go _ = Nothing
