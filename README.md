@@ -1,6 +1,6 @@
 # fast-time
 
-## A custom parsers using flatparse for data-time.
+## A custom date time parser made using flatparse
 
 
 ### Supported Formats of Date & Time 
