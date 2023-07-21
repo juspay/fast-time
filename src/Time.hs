@@ -5,14 +5,14 @@ module Time
   , parseTime
   , parseLTime
   ) where
-
+ 
 import Data.Text (Text)
 import Data.Time (UTCTime, LocalTime)
-import FlatParse.Basic (Result(..), runParserS)
+import qualified FlatParse.Basic as FB
 import Time.Parser as X
 
 parseTime :: Text -> String -> Maybe UTCTime
-parseTime format stringifiedDate = go $ runParserS parser stringifiedDate
+parseTime format stringifiedDate =  go $ FB.runParser parser $ FB.strToUtf8 stringifiedDate
   where
     parser
       | format == "%Y-%m-%dT%k:%M:%SZ" ||
@@ -24,15 +24,15 @@ parseTime format stringifiedDate = go $ runParserS parser stringifiedDate
         dayParser
       | format == "%d%m%Y" = dayParser'
       | otherwise = parserUTCTime
-    go (OK r _) = Just r
+    go (FB.OK r _) = Just r
     go _ = Nothing
 
 parseLTime :: Text -> String -> Maybe LocalTime 
-parseLTime format stringifiedDate = go $ runParserS parser stringifiedDate
+parseLTime format stringifiedDate =  go $ FB.runParser parser  $ FB.strToUtf8 stringifiedDate
   where
     parser 
       |  format == "%Y-%m-%dT%k:%M:%S%Q%Ez" =
         parserLocalTime
       | otherwise = parserLocalTime
-    go (OK r _) = Just r
+    go (FB.OK r _) = Just r
     go _ = Nothing

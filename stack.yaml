@@ -35,7 +35,9 @@ packages:
 # forks / in-progress versions pinned to a git hash. For example:
 #
 extra-deps:
-  - flatparse-0.3.5.1@sha256:f10369df044cf9782dfd1ce7bd865f2d3e2ea7d71cc0040df62b3ac921021a45,3936
+  # - flatparse-0.3.5.1@sha256:f10369df044cf9782dfd1ce7bd865f2d3e2ea7d71cc0040df62b3ac921021a45,3936
+- flatparse-0.4.1.0  
+- utf8-string-1.0.2@sha256:79416292186feeaf1f60e49ac5a1ffae9bf1b120e040a74bf0e81ca7f1d31d3f,1538
 # - acme-missiles-0.3
 # - git: https://github.com/commercialhaskell/stack.git
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a

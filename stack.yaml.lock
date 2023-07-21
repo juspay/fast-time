@@ -5,15 +5,22 @@
 
 packages:
 - completed:
-    hackage: flatparse-0.3.5.1@sha256:f10369df044cf9782dfd1ce7bd865f2d3e2ea7d71cc0040df62b3ac921021a45,3936
+    hackage: flatparse-0.4.1.0@sha256:b3cc2e58a63d9010ceb34596c97ff1e5efd40d9d429d16a1673be92212903b15,4537
     pantry-tree:
-      size: 1062
-      sha256: e0d48ff528737de7351bd3d491ad6913bbd4aca0b9957386512820a0f09eedd5
+      sha256: 281402986d640a07f104f017bf3b87ffa38548a69e2e481c8fcac638fe107d06
+      size: 2341
   original:
-    hackage: flatparse-0.3.5.1@sha256:f10369df044cf9782dfd1ce7bd865f2d3e2ea7d71cc0040df62b3ac921021a45,3936
+    hackage: flatparse-0.4.1.0
+- completed:
+    hackage: utf8-string-1.0.2@sha256:79416292186feeaf1f60e49ac5a1ffae9bf1b120e040a74bf0e81ca7f1d31d3f,1538
+    pantry-tree:
+      sha256: 0863c3c9b6ee24dd38873c62e38ac46dd50aff2ea6b362beadf7f9b4a273c75f
+      size: 601
+  original:
+    hackage: utf8-string-1.0.2@sha256:79416292186feeaf1f60e49ac5a1ffae9bf1b120e040a74bf0e81ca7f1d31d3f,1538
 snapshots:
 - completed:
+    sha256: d6b004b095fe2a0b8b14fbc30014ee97e58843b9c9362ddb9244273dda62649e
     size: 532380
     url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/16.yaml
-    sha256: d6b004b095fe2a0b8b14fbc30014ee97e58843b9c9362ddb9244273dda62649e
   original: lts-16.16
