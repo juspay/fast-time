@@ -28,6 +28,7 @@ library
       Lib
       Time
       Time.Parser
+      Utils.ReadInteger
   other-modules:
       Paths_fast_time
   hs-source-dirs:
@@ -38,6 +39,7 @@ library
     , flatparse
     , text
     , time
+    , bytestring
   default-language: Haskell2010
 
 executable fast-time-bench
@@ -54,6 +56,7 @@ executable fast-time-bench
     , flatparse
     , text
     , time
+    , bytestring
   default-language: Haskell2010
 
 executable fast-time-exe
@@ -85,4 +88,5 @@ test-suite fast-time-test
     , flatparse
     , text
     , time
+    , bytestring
   default-language: Haskell2010
