@@ -8,11 +8,12 @@ module Time
 
 import Data.Text (Text)
 import Data.Time (UTCTime, LocalTime)
-import FlatParse.Basic (Result(..), runParserS)
+import FlatParse.Basic (Result(..), runParser)
 import Time.Parser as X
+import qualified Data.ByteString.Char8 as B
 
 parseTime :: Text -> String -> Maybe UTCTime
-parseTime format stringifiedDate = go $ runParserS parser stringifiedDate
+parseTime format stringifiedDate = go $ runParser parser (B.pack stringifiedDate)
   where
     parser
       | format == "%Y-%m-%dT%k:%M:%SZ" ||
@@ -28,7 +29,7 @@ parseTime format stringifiedDate = go $ runParserS parser stringifiedDate
     go _ = Nothing
 
 parseLTime :: Text -> String -> Maybe LocalTime 
-parseLTime format stringifiedDate = go $ runParserS parser stringifiedDate
+parseLTime format stringifiedDate = go $ runParser parser (B.pack stringifiedDate)
   where
     parser 
       |  format == "%Y-%m-%dT%k:%M:%S%Q%Ez" =

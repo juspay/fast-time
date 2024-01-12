@@ -9,6 +9,7 @@ module Time.Parser
 import Data.Time
 import FlatParse.Basic
 import Data.Fixed (Pico)
+import Utils.ReadInteger
 
 -- | Custom parser for the format
 -- %Y-%m-%dT%k:%M:%SZ
@@ -45,9 +46,9 @@ dayParser = do
 -- Added parser for handling date for this format --> "%d%m%Y" 
 dayParser' :: Parser e UTCTime
 dayParser' = do
-  day <- isolate 2 readInt
-  month <- isolate 2 readInt
-  year <- isolate 4 readInteger
+  day <- isolate 2 readDayOfMonth
+  month <- isolate 2 readMonthOfYear
+  year <- isolate 4 readYear
   pure $
    UTCTime
       (fromGregorian year month day)
@@ -56,19 +57,19 @@ dayParser' = do
 -- | utils
 dateParser :: Parser e (Integer, Int, Int)
 dateParser = do
-  year <- readInteger
-  satisfy_ (\x -> x == '-' || x == ' ' || x == '/')
-  month <- readInt
-  satisfy_ (\x -> x == '-' || x == ' ' || x == '/')
-  day <- readInt
+  year <- readYear
+  satisfy (\x -> x == '-' || x == ' ' || x == '/')
+  month <- readMonthOfYear
+  satisfy (\x -> x == '-' || x == ' ' || x == '/')
+  day <- readDayOfMonth
   pure (year, month, day)
 
 -- common function for parsing time
 basicParserUtil :: Parser e (Integer, Int, Int, Integer, Integer, Integer, Integer, Int)
 basicParserUtil = do
   (year, month, day) <- dateParser
-  satisfy_ (\x -> x == '-' || x == ' ' || x == 'T')
-  many_ $(char ' ')
+  satisfy (\x -> x == '-' || x == ' ' || x == 'T')
+  many $(char ' ')
   hr <- readInteger
   $(char ':')
   minutes <- readInteger
